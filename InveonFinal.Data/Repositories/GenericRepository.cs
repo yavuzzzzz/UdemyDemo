@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using InveonFinal.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace InveonFinal.Data.Repositories
 {
@@ -14,11 +15,11 @@ namespace InveonFinal.Data.Repositories
         private readonly AppDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-
         public GenericRepository(AppDbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();
+
         }
         public async Task AddAsync(T entity)
         {

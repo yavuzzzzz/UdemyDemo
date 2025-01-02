@@ -17,7 +17,7 @@ namespace InveonFinal.Data.Configurations
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.Name).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Category).IsRequired().HasMaxLength(100);
-            builder.Property(x => x.Description).HasMaxLength(500);
+            builder.Property(x => x.Description).IsRequired().HasMaxLength(500);
             builder.Property(x => x.ImageUrl).HasMaxLength(200);
             builder.Property(x => x.Price).HasColumnType("decimal(18,2)");
 

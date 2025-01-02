@@ -11,9 +11,4 @@
     <ProjectReference Include="..\InveonFinal.Data\InveonFinal.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Abstracts\" />
-    <Folder Include="Concretes\" />
-  </ItemGroup>
-
 </Project>

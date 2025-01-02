@@ -11,7 +11,7 @@ namespace InveonFinal.Core.Models
         public int Id { get; set; }
         public string Name { get; set; } = default!;
         public string Category { get; set; } = default!;
-        public string? Description { get; set; }
+        public string Description { get; set; } = default!;
         public string? ImageUrl { get; set; }
         public decimal Price { get; set; }
         public TimeSpan Duration { get; set; }
