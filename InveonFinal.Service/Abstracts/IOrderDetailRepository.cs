@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using InveonFinal.Core.Models;
 using InveonFinal.Core.Repositories;
+using InveonFinal.Service.Dtos.OrderDtos;
 
 namespace InveonFinal.Service.Abstracts
 {
-    public interface IOrderDetailRepository : IGenericRepository<OrderDetail>
+    public interface IOrderDetailRepository : IGenericRepository<OrderDetailDto>
     {
-        Task<IEnumerable<Order>> GetOrderDetailsByOrderIdAsync(int orderId);
+        Task<IEnumerable<OrderResponseDto>> GetOrderDetailsByOrderIdAsync(int orderId);
     }
 }

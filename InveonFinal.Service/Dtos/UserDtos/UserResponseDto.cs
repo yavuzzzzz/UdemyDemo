@@ -12,5 +12,6 @@ namespace InveonFinal.Service.Dtos.UserDtos
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string Email { get; set; } = default!;
+        public string Role { get; set; } = default!;
     }
 }

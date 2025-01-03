@@ -5,13 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using InveonFinal.Core.Models;
 using InveonFinal.Core.Repositories;
+using InveonFinal.Service.Dtos.AuthDtos;
+using InveonFinal.Service.Dtos.UserDtos;
 
 namespace InveonFinal.Service.Abstracts
 {
-    public interface IAppUserRepository : IGenericRepository<AppUser>
+    public interface IAppUserRepository : IGenericRepository<UserResponseDto>
     {
-        Task<AppUser> GetUserByNameAsync(string firstName);
-        Task<IEnumerable<AppUser>> GetUsersByRoleAsync(string roleName);
+        Task<UserResponseDto> GetUserByFirstNameAsync(string firstName);
+        Task<IEnumerable<UserResponseDto>> GetUsersByRoleAsync(string role);
+        Task<RegisterDto> RegisterAsync(RegisterDto registerDto);
+        Task<LoginDto> LoginAsync(LoginDto loginDto);
+
     }
 }
 

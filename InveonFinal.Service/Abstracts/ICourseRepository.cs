@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using InveonFinal.Core.Models;
 using InveonFinal.Core.Repositories;
+using InveonFinal.Service.Dtos.CourseDtos;
 
 namespace InveonFinal.Service.Abstracts
 {
-    public interface ICourseRepository : IGenericRepository<Course>
+    public interface ICourseRepository : IGenericRepository<CourseResponseDto>
     {
-        Task<IEnumerable<Course>> GetOrdersByCategoryAsync(string category);
+        Task<IEnumerable<CourseResponseDto>> GetOrdersByCategoryAsync(CourseResponseDto courseResponseDto);
 
-        Task<IEnumerable<Course>> SearchCoursesAsync(string searchTerm);
+        Task<IEnumerable<CourseResponseDto>> SearchCoursesAsync(string searchTerm);
     }
 }
