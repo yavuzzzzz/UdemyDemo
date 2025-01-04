@@ -31,11 +31,6 @@ namespace InveonFinal.Service.Concretes
             throw new NotImplementedException();
         }
 
-        public Task<UserResponseDto> GetUserByFirstNameAsync(string firstName)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<IEnumerable<UserResponseDto>> GetUsersByRoleAsync(string role)
         {
             throw new NotImplementedException();
@@ -61,7 +56,7 @@ namespace InveonFinal.Service.Concretes
             throw new NotImplementedException();
         }
 
-        Task<IEnumerable<UserResponseDto>> IGenericRepository<UserResponseDto>.GetAllAsync()
+        Task<IQueryable<UserResponseDto>> IGenericRepository<UserResponseDto>.GetAllAsync()
         {
             throw new NotImplementedException();
         }
@@ -70,60 +65,5 @@ namespace InveonFinal.Service.Concretes
         {
             throw new NotImplementedException();
         }
-
-        //    public async Task<UserResponseDto> GetUserByNameAsync(string firstName)
-        //    {
-        //        var user = await _context.Users
-        //                                 .FirstOrDefaultAsync(e => e.FirstName == firstName);
-        //        return user;
-        //    }
-
-        //    public async Task<IEnumerable<AppUser>> GetUsersByRoleAsync(string roleName)
-        //    {
-        //        var role = await _context.Roles
-        //                                 .FirstOrDefaultAsync(x => x.Name == roleName);
-
-        //        if (role == null)
-        //        {
-        //            return new List<AppUser>();
-        //        }
-
-        //        var userIds = await _context.UserRoles
-        //                                    .Where(x => x.RoleId == role.Id)
-        //                                    .Select(x => x.UserId)
-        //                                    .ToListAsync();
-
-        //        return await _context.Users
-        //                             .Where(u => userIds.Contains(u.Id))
-        //                             .ToListAsync();
-        //    }
-
-        //    public async Task<AppUser> LoginAsync(string email, string password)
-        //    {
-        //        var user = await _userManager.FindByEmailAsync(email);
-        //        if (user == null)
-        //        {
-        //            return null;
-        //        }
-
-        //        var result = await _signInManager.CheckPasswordSignInAsync(user, password, false);
-        //        if (result.Succeeded)
-        //        {
-        //            return user;
-        //        }
-
-        //        return null;
-        //    }
-
-        //    public async Task<AppUser> RegisterAsync(AppUser appUser, string password)
-        //    {
-        //        var result = await _userManager.CreateAsync(appUser,password);
-        //        if (result.Succeeded)
-        //        {
-        //            return appUser;
-        //        }
-
-        //        throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
-        //    }
-        //}
     }
+}

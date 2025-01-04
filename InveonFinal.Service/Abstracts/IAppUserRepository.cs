@@ -12,7 +12,6 @@ namespace InveonFinal.Service.Abstracts
 {
     public interface IAppUserRepository : IGenericRepository<UserResponseDto>
     {
-        Task<UserResponseDto> GetUserByFirstNameAsync(string firstName);
         Task<IEnumerable<UserResponseDto>> GetUsersByRoleAsync(string role);
         Task<RegisterDto> RegisterAsync(RegisterDto registerDto);
         Task<LoginDto> LoginAsync(LoginDto loginDto);

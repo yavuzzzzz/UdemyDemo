@@ -11,7 +11,7 @@ namespace InveonFinal.Core.Repositories
     {
 
         Task<T?> GetByIdAsync(int id);
-        Task<IEnumerable<T>> GetAllAsync();
+        Task<IQueryable<T>> GetAllAsync();
         Task AddAsync(T entity);
         void Remove(T entity);
         T Update(T entity);

@@ -26,9 +26,9 @@ namespace InveonFinal.Data.Repositories
             await _dbSet.AddAsync(entity);
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IQueryable<T>> GetAllAsync()
         {
-            return await _dbSet.ToListAsync();
+            return (IQueryable<T>)await _dbSet.ToListAsync();
         }
 
         public async Task<T?> GetByIdAsync(int id)

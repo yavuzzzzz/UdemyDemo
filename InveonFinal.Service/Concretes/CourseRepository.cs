@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InveonFinal.Core.Models;
+using InveonFinal.Core.Repositories;
 using InveonFinal.Data;
 using InveonFinal.Data.Repositories;
 using InveonFinal.Service.Abstracts;
+using InveonFinal.Service.Dtos.CourseDtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace InveonFinal.Service.Concretes
@@ -19,18 +21,40 @@ namespace InveonFinal.Service.Concretes
         {
             _context = context;
         }
-        public async Task<IEnumerable<Course>> GetOrdersByCategoryAsync(string category)
+
+        public Task AddAsync(CourseResponseDto entity)
         {
-            return await _context.Courses
-                                 .Where(c => c.Category == category)
-                                 .ToListAsync();
+            throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Course>> SearchCoursesAsync(string searchTerm)
+        public Task<IEnumerable<CourseResponseDto>> GetOrdersByCategoryAsync(CourseResponseDto courseResponseDto)
         {
-            return await _context.Courses
-                                 .Where(c => c.Name.Contains(searchTerm) || c.Description.Contains(searchTerm))
-                                 .ToListAsync();
+            throw new NotImplementedException();
+        }
+
+        public void Remove(CourseResponseDto entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<CourseResponseDto>> SearchCoursesAsync(string searchTerm)
+        {
+            throw new NotImplementedException();
+        }
+
+        public CourseResponseDto Update(CourseResponseDto entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IQueryable<CourseResponseDto>> IGenericRepository<CourseResponseDto>.GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<CourseResponseDto?> IGenericRepository<CourseResponseDto>.GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -17,12 +17,11 @@ namespace InveonFinal.Data.Configurations
             builder.Property(x => x.Id).UseIdentityColumn();
 
 
-            // builder.Property(x => x.OrderId).IsRequired();
-
+            builder.Property(x => x.OrderId).IsRequired();
             builder.Property(x => x.PaymentType).HasMaxLength(50);
             builder.Property(x => x.PaymentStatus).HasMaxLength(50);
             builder.Property(x => x.PaymentDate).IsRequired();
-            builder.Property(x => x.Amount).IsRequired().HasColumnType("decimal(18,2)");
+            builder.Property(x => x.Amount).IsRequired();
 
             builder.HasMany(x => x.Orders)
                 .WithOne(x => x.Payment)

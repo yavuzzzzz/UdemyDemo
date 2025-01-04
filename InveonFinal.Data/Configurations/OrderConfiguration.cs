@@ -18,8 +18,9 @@ namespace InveonFinal.Data.Configurations
 
             builder.Property(x => x.UserId).IsRequired();
             builder.Property(x => x.OrderDate).IsRequired();
-            builder.Property(x => x.TotalPrice).IsRequired();
-            builder.Property(x => x.status).HasMaxLength(50);
+            builder.Property(x => x.TotalPrice).IsRequired().HasColumnType("decimal(18,2)");
+           
+            builder.Property(x => x.OrderStatus).HasMaxLength(50);
 
 
             builder.HasMany(x => x.OrderDetails)
