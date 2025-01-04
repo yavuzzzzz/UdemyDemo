@@ -20,7 +20,7 @@ namespace InveonFinal.Data
             _context.SaveChanges();
         }
 
-        public async Task CommmitAsync()
+        public async Task CommitAsync()
         {
            await _context.SaveChangesAsync();
         }

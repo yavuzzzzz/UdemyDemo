@@ -8,7 +8,7 @@ namespace InveonFinal.Core.UnitOfWork
 {
     public interface IUnitOfWork
     {
-        Task CommmitAsync();
+        Task CommitAsync();
 
         void Commit();
     }
