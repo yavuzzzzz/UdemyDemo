@@ -9,11 +9,12 @@ import { useState, useEffect } from 'react';
 import Checkout from '../pages/Checkout';
 import CourseDetail from '../pages/CourseDetail';
 import alertify from 'alertifyjs';
+import NotFound from '../pages/NotFound';
 
 function AppRouter() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [cart, setCart] = useState([]);
-  const [redirectedCart, setRedirectedCart] = useState([]); // Redirect edilen sepet bilgisi
+  const [redirectedCart, setRedirectedCart] = useState([]); // Yönlendirme sonrası sepeti tutmak için
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
@@ -40,9 +41,9 @@ function AppRouter() {
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem('isAuthenticated'); // Çıkış yapıldığında giriş bilgisi temizlenir
-    alertify.success('Çıkış Yapıldı!'); // Çıkış mesajı
-    setCart([]); // Sepeti boşalt
+    localStorage.removeItem('isAuthenticated'); 
+    alertify.success('Çıkış Yapıldı!'); 
+    setCart([]); 
   };
 
   return (
@@ -77,6 +78,8 @@ function AppRouter() {
           element={<Basket cart={cart} setCart={setCart} isAuthenticated={isAuthenticated} setRedirectedCart={setRedirectedCart} />}
         />
         <Route path="/checkout" element={<Checkout cart={cart} />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

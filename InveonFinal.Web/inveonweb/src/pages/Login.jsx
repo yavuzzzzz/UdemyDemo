@@ -16,9 +16,9 @@ function Login({ setAuth, userInfo, setCart }) {
       localStorage.setItem('isAuthenticated', 'true');
   
       if (redirectedCart.length > 0) {
-        setCart(redirectedCart); // `redirectedCart` bilgilerini yükle
+        setCart(redirectedCart); 
         alertify.success('Sepetiniz geri yüklendi.');
-        setRedirectedCart([]); // Yükleme sonrası temizle
+        setRedirectedCart([]); 
         localStorage.removeItem('redirectedCart');
       }
   

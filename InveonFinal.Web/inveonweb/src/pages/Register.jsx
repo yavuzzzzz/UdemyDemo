@@ -9,7 +9,7 @@ function Register({ setUserInfo }) {
 
   const onSubmit = (data) => {
     setUserInfo(data);
-    localStorage.setItem('userInfo', JSON.stringify(data)); // Kullanıcı bilgilerini kaydet
+    localStorage.setItem('userInfo', JSON.stringify(data)); 
     alertify.success('Kayıt başarılı!');
     navigate('/login');
   };

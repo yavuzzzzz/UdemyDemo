@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { Card, CardBody, CardTitle, CardText, Input, Button } from 'reactstrap';
 import { FaEdit } from 'react-icons/fa';
 import alertify from 'alertifyjs';
-import { GoHome } from 'react-icons/go';
 import GoHomeButton from '../components/GoHomeButton';
 
 function Profile({ userInfo, setUserInfo }) {
-  const [editableField, setEditableField] = useState(null); // Düzenlenmekte olan alan
-  const [editedValue, setEditedValue] = useState(''); // Yeni değer
+  const [editableField, setEditableField] = useState(null); 
+  const [editedValue, setEditedValue] = useState(''); 
 
   const handleEditClick = (field) => {
-    setEditableField(field); // Düzenlenebilir alanı belirle
-    setEditedValue(userInfo[field]); // Mevcut değeri input'a yükle
+    setEditableField(field); 
+    setEditedValue(userInfo[field]); 
   };
 
   const handleSaveClick = () => {
@@ -26,10 +25,10 @@ function Profile({ userInfo, setUserInfo }) {
       password: 'Şifre',
     };
   
-    // Kullanıcı bilgilerini güncelle
+    
     setUserInfo({ ...userInfo, [editableField]: editedValue });
     alertify.success(`${fieldLabels[editableField]} başarıyla güncellendi!`);
-    setEditableField(null); // Düzenleme modunu kapat
+    setEditableField(null); 
   };
   
 

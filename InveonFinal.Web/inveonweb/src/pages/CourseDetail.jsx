@@ -6,12 +6,12 @@ import seedData from '../data/SeedData';
 import GoHomeButton from '../components/GoHomeButton';
 
 function CourseDetail({ cart, setCart }) {
-  const { id } = useParams(); // URL'den kurs ID'sini alıyoruz
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [course, setCourse] = useState(null);
-  const [quantity, setQuantity] = useState(1); // Başlangıç miktarı
+  const [quantity, setQuantity] = useState(1); 
   const [loading, setLoading] = useState(true);
-  const [showGoToCart, setShowGoToCart] = useState(false); // Sepete Git butonunu gösterme durumu
+  const [showGoToCart, setShowGoToCart] = useState(false); 
 
   useEffect(() => {
     setLoading(true);
@@ -25,7 +25,7 @@ function CourseDetail({ cart, setCart }) {
   const handleIncrease = () => {
     setQuantity(quantity + 1);
     alertify.success('Seçilen üründen 1 adet daha satın aldınız!');
-    setShowGoToCart(true); // "+" butonuna basılınca "Sepete Git" butonunu göster
+    setShowGoToCart(true); 
   };
 
   const handleDecrease = () => {
@@ -34,13 +34,13 @@ function CourseDetail({ cart, setCart }) {
       alertify.warning('Seçilen üründen bir adet bıraktınız!');
     } else {
       const updatedCart = cart.filter((item) => item.id !== course.id);
-      setCart(updatedCart); // Ürünü sepetten çıkar
+      setCart(updatedCart); 
       alertify.error('Ürün sepetten çıkarıldı!');
 
-      // Eğer sepet boşsa yönlendirme
+      // Eğer sepet boş ise anasayfaya yönlendir
       if (updatedCart.length === 0) {
         alertify.warning('Sepetinizde ürün bulunmamaktadır.');
-        navigate('/'); // Ana sayfaya yönlendir
+        navigate('/'); 
       }
     }
   };
@@ -53,7 +53,7 @@ function CourseDetail({ cart, setCart }) {
       setCart([...cart, { ...course, quantity }]);
     }
     alertify.success('Ürün sepete eklendi.');
-    setShowGoToCart(true); // Sepete ekle ile "Sepete Git" butonunu göster
+    setShowGoToCart(true);
   };
 
   return (
@@ -80,7 +80,6 @@ function CourseDetail({ cart, setCart }) {
               </Button>
             </div>
 
-            {/* Sepete Ekle Butonu - Küçük ve Sol Hizalanmış */}
             <div className="d-flex justify-content-between align-items-center">
               <Button
                 color="primary"
@@ -91,7 +90,6 @@ function CourseDetail({ cart, setCart }) {
                 Sepete Ekle
               </Button>
 
-              {/* Sepete Git Butonu */}
               {showGoToCart && (
                 <Button
                   color="warning"

@@ -2,17 +2,16 @@ import React, { useEffect } from 'react';
 import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 import alertify from 'alertifyjs';
-import { GoHome } from 'react-icons/go';
 import GoHomeButton from '../components/GoHomeButton';
 
 function Basket({ cart, setCart, isAuthenticated, setRedirectedCart }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Kullanıcı giriş yapmadan sepette işlem yaparsa login sayfasına yönlendir
+    // Kullanıcı giriş yapmadan önce sepete ürün eklemişse uyarı ver ve giriş sayfasına yönlendir
     if (!isAuthenticated && cart.length > 0) {
       alertify.warning('Sepette işlem yapmak için giriş yapmalısınız!');
-      localStorage.setItem('redirectedCart', JSON.stringify(cart)); // Sepeti localStorage'a kaydet
+      localStorage.setItem('redirectedCart', JSON.stringify(cart));
       setRedirectedCart(cart);
       navigate('/login');
     }
@@ -82,7 +81,6 @@ function Basket({ cart, setCart, isAuthenticated, setRedirectedCart }) {
         </div>
       )}
 
-      {/* Sepet toplam tutar ve ödeme butonu */}
       {cart.length > 0 && (
         <div style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
           <Button color="success" size="lg" onClick={() => navigate('/checkout')}>
