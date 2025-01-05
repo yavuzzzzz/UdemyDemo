@@ -1,56 +1,60 @@
 import React from 'react';
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Button, Badge } from 'reactstrap';
-import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faShoppingCart, faSignOutAlt, faSignInAlt, faUserPlus, faHome } from '@fortawesome/free-solid-svg-icons';
 
-function AppNavbar({ isAuthenticated, onLogout, cart }) {
-  const navigate = useNavigate();
-  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0); // Toplam miktar
-
-  const handleLogoClick = () => {
-    navigate(isAuthenticated ? '/' : '/login');
-  };
-
+function Navbar({ isAuthenticated, onLogout, cart }) {
   return (
-    <Navbar color="primary" dark expand="md" className="px-4">
-      <NavbarBrand onClick={handleLogoClick} style={{ cursor: 'pointer', fontWeight: 'bold' }}>
-        Bookify
-      </NavbarBrand>
-      <Nav className="ms-auto" navbar>
-        {isAuthenticated ? (
-          <>
-            <NavItem>
-              <NavLink onClick={() => navigate('/profile')} style={{ cursor: 'pointer', color: 'white' }}>
-                Profile
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink onClick={() => navigate('/basket')} style={{ cursor: 'pointer', color: 'white' }}>
-                Sepet <Badge color="warning">{totalQuantity}</Badge>
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <Button color="light" size="sm" onClick={onLogout}>
-                Log Out
-              </Button>
-            </NavItem>
-          </>
-        ) : (
-          <>
-            <NavItem>
-              <NavLink onClick={() => navigate('/register')} style={{ cursor: 'pointer', color: 'white' }}>
-                Register
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink onClick={() => navigate('/login')} style={{ cursor: 'pointer', color: 'white' }}>
-                Log In
-              </NavLink>
-            </NavItem>
-          </>
-        )}
-      </Nav>
-    </Navbar>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container">
+        <NavLink className="navbar-brand" to="/">
+          <FontAwesomeIcon icon={faHome} className="me-2" />
+          Bookify
+        </NavLink>
+        <div className="collapse navbar-collapse">
+          <ul className="navbar-nav ms-auto">
+            {isAuthenticated ? (
+              <>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/profile">
+                    <FontAwesomeIcon icon={faUser} className="me-2" />
+                    Profil
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/basket">
+                    <FontAwesomeIcon icon={faShoppingCart} className="me-2" />
+                    Sepet ({cart.length})
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <button className="btn btn-danger nav-link" onClick={onLogout}>
+                    <FontAwesomeIcon icon={faSignOutAlt} className="me-2" />
+                    Çıkış Yap
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/register">
+                    <FontAwesomeIcon icon={faUserPlus} className="me-2" />
+                    Kayıt Ol
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/login">
+                    <FontAwesomeIcon icon={faSignInAlt} className="me-2" />
+                    Giriş Yap
+                  </NavLink>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 
-export default AppNavbar;
+export default Navbar;
