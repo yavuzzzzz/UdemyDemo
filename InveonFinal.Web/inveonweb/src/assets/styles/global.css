@@ -1,0 +1,31 @@
+:root {
+  --primary-color: #6a0dad;
+  --light-color: white;
+}
+
+.navbar {
+  background-color: var(--primary-color) !important;
+}
+
+.nav-link {
+  color: var(--light-color) !important;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #530d88;
+}
